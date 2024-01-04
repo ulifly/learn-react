@@ -1,22 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import { useState } from 'react';
+
+import Perfil from './components/Perfil'
+import MyBoton from './components/MyBoton'
+import Familia from './components/Familia'
+import Lista  from './components/Lista';
+
+
+
+
 function App() {
+  const [ contador, setContador ] = useState(0); 
+  function handleClick() {
+    setContador(contador + 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header>
+        <Perfil/>
+        <MyBoton count={contador} onClick={handleClick}/>
+        <MyBoton count={contador} onClick={handleClick}/>
+        <Familia/>
+        <Lista/>  
       </header>
     </div>
   );
